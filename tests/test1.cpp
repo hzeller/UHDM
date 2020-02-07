@@ -1,10 +1,10 @@
 // -*- mode: c++; c-basic-offset: 2; indent-tabs-mode: nil; -*-
 
+#include <iostream>
+
 #include "headers/uhdm.h"
 #include "headers/vpi_visitor.h"
 #include "test_helper.h"
-
-#include <iostream>
 
 using namespace UHDM;
 

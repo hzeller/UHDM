@@ -1,23 +1,15 @@
-#include "headers/uhdm.h"
-#include <iostream>
+// -*- mode: c++; c-basic-offset: 2; indent-tabs-mode: nil; -*-
+
+#include <sys/types.h>
 #include <sys/stat.h>
 #include <unistd.h>
-#include <string.h>
-#include <limits.h> /* PATH_MAX */
-#include <errno.h>
-#include <stdlib.h>
+
 #include <iostream>
-#include <algorithm>
-#include <string>
-#include <dirent.h>
-#include <stdio.h>
-#include <regex>
-#include <fstream>
-#include <sstream>
+
+#include "headers/uhdm.h"
+#include "vpi_visitor.h"
 
 using namespace UHDM;
-
-#include "vpi_visitor.h"
 
 int main (int argc, char** argv) {
   std::string fileName = "surelog.uhdm";
@@ -32,8 +24,8 @@ int main (int argc, char** argv) {
   Serializer serializer;
   std::cout << "Restore design from: " << fileName << std::endl;
   std::vector<vpiHandle> restoredDesigns = serializer.Restore(fileName);
-  
+
   std::string restored = visit_designs(restoredDesigns);
   std::cout << restored;
   return 0;
-};
+}

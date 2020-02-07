@@ -3,10 +3,9 @@
 #include <iostream>
 
 #include "headers/uhdm.h"
+#include "test_helper.h"
 
 using namespace UHDM;
-
-#include "test_helper.h"
 
 std::vector<vpiHandle> build_designs (Serializer& s) {
   std::vector<vpiHandle> designs;
