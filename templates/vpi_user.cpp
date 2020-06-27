@@ -251,7 +251,6 @@ PLI_INT64 vpi_get64 (PLI_INT32 property,
   }
 
   // ... all other properties currently handled 'manually' for now
-  if (false) {}
 <VPI_GET_BODY>
 
   return 0;
@@ -287,7 +286,6 @@ PLI_BYTE8 *vpi_get_str (PLI_INT32 property,
   }
 
   // ... all other properties currently handled 'manually' for now
-  if (false) {}
   <VPI_GET_STR_BODY>
 
   return 0;

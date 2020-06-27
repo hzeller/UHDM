@@ -276,7 +276,7 @@ proc printGetHandleByNameBody { name classname vpi card } {
 }
 
 proc printGetBodyPrefix {classname} {
-    return "  else if (handle->type == uhdm${classname}) \{
+    return "  if (handle->type == uhdm${classname}) \{
     switch (property) \{"
 }
 
@@ -407,7 +407,7 @@ proc printGetStrBody {classname type vpi card} {
     if {$card == 1 && ($type == "string")} {
         if {$vpi == "vpiFullName"} {
             append vpi_get_str_body "
-  else if (handle->type == uhdm${classname} \\&\\& property == $vpi) {
+  if (handle->type == uhdm${classname} \\&\\& property == $vpi) {
     const $classname* const o = (const $classname*)(obj);
     return (o->[string toupper ${vpi} 0 0]().empty() || o->[string toupper ${vpi} 0 0]() == o->VpiName())
         ? 0
@@ -415,7 +415,7 @@ proc printGetStrBody {classname type vpi card} {
   }"
         } else {
             append vpi_get_str_body "
-  else if (handle->type == uhdm${classname} \\&\\& property == $vpi) {
+  if (handle->type == uhdm${classname} \\&\\& property == $vpi) {
     const $classname* const o = (const $classname*)(obj);
     return (PLI_BYTE8*) (o->[string toupper ${vpi} 0 0]().empty() ? 0 : o->[string toupper ${vpi} 0 0]().c_str());
   }"
